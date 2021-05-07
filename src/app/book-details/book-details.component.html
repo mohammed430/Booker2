@@ -1,0 +1,23 @@
+<div class="media">
+  <img src="{{ book.image }}" class="align-self-start mr-2" height="500" width="300">
+  <div class="media-body">
+    <h5 class="mt-0">{{book.title }}</h5>
+    <p>{{book.title}} was written by {{book.author}} in the {{book.published_date}}</p><br><br>
+    <h4>Book Category</h4>
+    <p>{{ book.category }}</p>
+    <h4>About this book</h4>
+    <p>{{ book.abstract }}</p>
+    <h4>status</h4>
+    <p>{{book.status}}</p>
+  </div>
+</div>
+<form [formGroup]="bookform" class="container">
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" formControlName="borrowedBy">
+    <div class="alert alert-danger" *ngIf="borrowedBy.touched && borrowedBy.invalid && borrowedBy.dirty">
+      please enter your email address
+    </div>
+  </div>
+  <button type="button" class="btn btn-primary" [disabled]="borrowedBy.invalid"  (click)="onSubmit()">Submit</button>
+</form>

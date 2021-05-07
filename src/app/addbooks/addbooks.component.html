@@ -1,0 +1,117 @@
+
+
+  <form [formGroup]="bookform" class="container">
+
+    <div class="form-group">
+      <label>Book Cover (Image)</label>
+      <input type="text" class="form-control" formControlName="image">
+      <div class="alert alert-danger" *ngIf="image.dirty && image.invalid && image.touched ">
+        <div *ngIf="image.errors?.required">Please insert your image</div>
+        <div *ngIf="image.errors?.minlength">Your image should be more than 10 letters</div>
+      </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+      <label>Contact Name</label>
+      <input type="text" class="form-control" formControlName="contact_name">
+      <div class="alert alert-danger" *ngIf="contact_name.dirty && contact_name.invalid && contact_name.touched ">
+        <div *ngIf="contact_name.errors?.required">Please insert your name</div>
+        <div *ngIf="contact_name.errors?.minlength">Your name should be at least 3 letters</div>
+      </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="number" class="form-control" formControlName="phone">
+    </div>
+
+
+
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" class="form-control" formControlName="email">
+      <div class="alert alert-danger" *ngIf="email.touched && email.invalid && email.dirty">
+        please enter your email address
+      </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+      <label>Abstract</label>
+      <input type="text" rows="5" class="form-control" formControlName="abstract">
+      <div class="alert alert-danger" *ngIf="abstract.dirty && abstract.invalid && abstract.touched ">
+        <div *ngIf="abstract.errors?.required">Please insert a breaf abstract about the book</div>
+        <div *ngIf="abstract.errors?.minlength">Abstract should be at least 50 letters</div>
+      </div>
+
+    </div>
+
+
+
+
+    <div class="form-group">
+      <label>Author</label>
+      <input type="text" class="form-control" formControlName="author">
+    </div>
+
+
+
+
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" class="form-control" formControlName="title">
+        <div class="alert alert-danger" *ngIf="title.dirty && title.invalid && title.touched ">
+          <div *ngIf="title.errors?.required">Please insert the book title</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label>Published Date</label>
+      <input type="date" class="form-control" formControlName="published_date">
+        <div class="alert alert-danger" *ngIf=" title.invalid && title.touched ">
+          <div *ngIf="title.errors?.required">Please choose a date</div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="form-group">
+      <label>Category</label>
+      <select class="form-control" formControlName="category">
+        <option value="action">Action</option>
+        <option value="horror">Horror</option>
+        <option value="drama">Drama</option>
+        <option value="romance">Romance</option>
+        <option value="fiction">Fiction</option>
+      </select>
+        <div class="alert alert-danger" *ngIf="category.invalid && category.touched">
+          <div *ngIf="category.errors?.required">Please select one</div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <button type="button" class="btn btn-primary" [disabled]="bookform.invalid"  (click)="onSubmit()">Submit</button>
+
+  </form>

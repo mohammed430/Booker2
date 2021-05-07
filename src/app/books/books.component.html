@@ -1,0 +1,18 @@
+
+  <div class="card-deck row" margin="30px">
+    <div class="col-lg-4" *ngFor="let book of books">
+      <div class="card">
+        <img [src]="book.image" class="card-img-top" height="450" >
+        <div class="card-body">
+          <h5 class="card-title">{{ book.title }}</h5>
+          <p class="card-text">{{ book.category }}</p>
+          <a [routerLink]="['/book-details', book.id]" class="btn btn-primary">Book Details</a>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">This book was published {{ book.published_date }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<hr class="featurette-divider">
